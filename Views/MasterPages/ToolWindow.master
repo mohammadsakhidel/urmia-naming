@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ToolWindow.master.cs" Inherits="Views_MasterPages_ToolWindow" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../../Content/Themes/Default/Default.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="window-title">
+            <asp:ContentPlaceHolder ID="WindowTitle" runat="server"></asp:ContentPlaceHolder>
+        </div>
+        <div class="window-content">
+            <asp:ContentPlaceHolder id="WindowContent" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

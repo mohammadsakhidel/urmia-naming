@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Views_MasterPages_Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>سیستم نامگذاری معابر شهرداری ارومیه</title>
+    <script type="text/javascript" src='<%= MyHelper.Url("~/Scripts/jquery-1.7.1.min.js") %>'></script>
+    <script type="text/javascript" src='<%= MyHelper.Url("~/Scripts/helper.js") %>'></script>
+    <link href="../../Content/Themes/Default/Default.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="page">
+        <div class="menu-bar">
+            <div class="menu-container">
+                <asp:ContentPlaceHolder ID="MenuPlace" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div class="header"></div>
+        <div class="middle">
+            <div style="direction: ltr;">
+                <div class="page-content-place">
+                    
+                    <asp:ContentPlaceHolder ID="PageTitlePlace" runat="server"></asp:ContentPlaceHolder>
+                    
+                    <div class="page-content">
+                        <asp:ContentPlaceHolder ID="ContentPlace" runat="server"></asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            طراحی و پیاده سازی: شرکت آرت استون ایرانیان
+        </div>
+    </div>
+    </form>
+</body>
+</html>

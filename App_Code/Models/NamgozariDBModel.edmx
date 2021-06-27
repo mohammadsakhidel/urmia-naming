@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="AccessRules">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="AccessToPassways" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AccessToMosavabs" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AccessToPassNames" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AccessToMembers" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AccessToReports" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Organization" Type="nvarchar" MaxLength="50" />
+          <Property Name="Position" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateOfCreate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MosavabPhotos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MosavabID" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateOfAdd" Type="datetime" Nullable="false" />
+          <Property Name="AddedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mosavabs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Shomare" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Explanation" Type="ntext" />
+          <Property Name="MeetingNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfMeeting" Type="datetime" />
+          <Property Name="Participants" Type="nvarchar" MaxLength="512" />
+          <Property Name="DateOfCreate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PassNames">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="DateOfAdd" Type="datetime" Nullable="false" />
+          <Property Name="AddedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsSuggestion" Type="bit" Nullable="false" />
+          <Property Name="SuggestedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShapeInfo" Type="ntext" />
+          <Property Name="DateOfSuggest" Type="datetime" />
+          <Property Name="LetterNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PasswayPhoto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PasswayID" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateOfAdd" Type="datetime" Nullable="false" />
+          <Property Name="AddedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Passways">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MosavabID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="tinyint" Nullable="false" />
+          <Property Name="PrecedingName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrecedingType" Type="tinyint" />
+          <Property Name="PostArea" Type="nvarchar" MaxLength="10" />
+          <Property Name="Region" Type="tinyint" />
+          <Property Name="Width" Type="float" />
+          <Property Name="Length" Type="float" />
+          <Property Name="ShapeInfo" Type="ntext" />
+          <Property Name="Explanation" Type="ntext" />
+          <Property Name="NameType" Type="tinyint" />
+          <Property Name="RecordId" Type="nvarchar" MaxLength="20" />
+          <Property Name="PrecedingRecordId" Type="nvarchar" MaxLength="20" />
+          <Property Name="FloorType" Type="tinyint" />
+          <Property Name="HasBoard" Type="bit" />
+          <Property Name="BoardType" Type="tinyint" />
+          <Property Name="BoardSize" Type="nvarchar" MaxLength="20" />
+          <Property Name="HasLighting" Type="bit" />
+          <Property Name="CountOfStores" Type="int" />
+          <Property Name="CountOfShoppingCenters" Type="int" />
+          <Property Name="CountOfCondominiums" Type="int" />
+          <Property Name="CountOfOfficeComplexes" Type="int" />
+          <Property Name="CountOfHouses" Type="int" />
+          <Property Name="CountOfOfficeBuildings" Type="int" />
+          <Property Name="CountOfOthers" Type="int" />
+          <Property Name="HasChannel" Type="bit" />
+          <Property Name="ChannelType" Type="tinyint" />
+          <Property Name="HasPlanting" Type="bit" />
+          <Property Name="HasSidewalk" Type="bit" />
+          <Property Name="SidewalkFloorType" Type="tinyint" />
+          <Property Name="SidewalkWidth" Type="float" />
+          <Property Name="IsSidewalkIncomplete" Type="bit" />
+          <Property Name="BeginingLongitude" Type="float" />
+          <Property Name="BeginingLatitude" Type="float" />
+          <Property Name="EndingLongitude" Type="float" />
+          <Property Name="EndingLatitude" Type="float" />
+          <Property Name="HasFur" Type="bit" />
+          <Property Name="HasFurNimkat" Type="bit" />
+          <Property Name="HasFurAbkhori" Type="bit" />
+          <Property Name="HasFurTrash" Type="bit" />
+          <Property Name="HasFurBodyBuilding" Type="bit" />
+          <Property Name="HasFurToys" Type="bit" />
+          <Property Name="HasFurLamps" Type="bit" />
+          <Property Name="HasFurAdv" Type="bit" />
+          <Property Name="DateOfAdd" Type="datetime" Nullable="false" />
+          <Property Name="AddedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BeginingX" Type="int" />
+          <Property Name="BeginingY" Type="int" />
+          <Property Name="EndingX" Type="int" />
+          <Property Name="EndingY" Type="int" />
+          <Property Name="ExtraField" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_AccessRules_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccessRules" Type="Self.AccessRules" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccessRules">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MosavabPhotos_Mosavabs">
+          <End Role="Mosavabs" Type="Self.Mosavabs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MosavabPhotos" Type="Self.MosavabPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mosavabs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MosavabPhotos">
+              <PropertyRef Name="MosavabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PasswayPhoto_Passways">
+          <End Role="Passways" Type="Self.Passways" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PasswayPhoto" Type="Self.PasswayPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passways">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PasswayPhoto">
+              <PropertyRef Name="PasswayID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passways_Mosavabs">
+          <End Role="Mosavabs" Type="Self.Mosavabs" Multiplicity="0..1" />
+          <End Role="Passways" Type="Self.Passways" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mosavabs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Passways">
+              <PropertyRef Name="MosavabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelsStoreContainer">
+          <EntitySet Name="AccessRules" EntityType="Self.AccessRules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MosavabPhotos" EntityType="Self.MosavabPhotos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mosavabs" EntityType="Self.Mosavabs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PassNames" EntityType="Self.PassNames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PasswayPhoto" EntityType="Self.PasswayPhoto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Passways" EntityType="Self.Passways" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AccessRules_Members" Association="Self.FK_AccessRules_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="AccessRules" EntitySet="AccessRules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MosavabPhotos_Mosavabs" Association="Self.FK_MosavabPhotos_Mosavabs">
+            <End Role="Mosavabs" EntitySet="Mosavabs" />
+            <End Role="MosavabPhotos" EntitySet="MosavabPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PasswayPhoto_Passways" Association="Self.FK_PasswayPhoto_Passways">
+            <End Role="Passways" EntitySet="Passways" />
+            <End Role="PasswayPhoto" EntitySet="PasswayPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passways_Mosavabs" Association="Self.FK_Passways_Mosavabs">
+            <End Role="Mosavabs" EntitySet="Mosavabs" />
+            <End Role="Passways" EntitySet="Passways" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="NamgozariDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PasswayPhotoes" EntityType="Models.PasswayPhoto" />
+          <EntitySet Name="Mosavabs" EntityType="Models.Mosavab" />
+          <EntitySet Name="Members" EntityType="Models.Member" />
+          <EntitySet Name="AccessRules" EntityType="Models.AccessRule" />
+          <AssociationSet Name="FK_AccessRules_Members" Association="Models.FK_AccessRules_Members">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="AccessRule" EntitySet="AccessRules" />
+          </AssociationSet>
+          <EntitySet Name="MosavabPhotos" EntityType="Models.MosavabPhoto" />
+          <AssociationSet Name="FK_MosavabPhotos_Mosavabs" Association="Models.FK_MosavabPhotos_Mosavabs">
+            <End Role="Mosavab" EntitySet="Mosavabs" />
+            <End Role="MosavabPhoto" EntitySet="MosavabPhotos" />
+          </AssociationSet>
+          <EntitySet Name="PassNames" EntityType="Models.PassName" />
+          <EntitySet Name="Passways" EntityType="Models.Passway" />
+          <AssociationSet Name="FK_Passways_Mosavabs" Association="Models.FK_Passways_Mosavabs">
+            <End Role="Mosavab" EntitySet="Mosavabs" />
+            <End Role="Passway" EntitySet="Passways" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PasswayPhoto_Passways" Association="Models.FK_PasswayPhoto_Passways">
+            <End Role="Passway" EntitySet="Passways" />
+            <End Role="PasswayPhoto" EntitySet="PasswayPhotoes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PasswayPhoto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PasswayID" Nullable="false" />
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfAdd" Nullable="false" Precision="3" />
+          <Property Type="String" Name="AddedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Passway" Relationship="Models.FK_PasswayPhoto_Passways" FromRole="PasswayPhoto" ToRole="Passway" />
+        </EntityType>
+        <EntityType Name="Mosavab">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Subject" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Shomare" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Explanation" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MeetingNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfMeeting" Precision="3" />
+          <Property Type="String" Name="Participants" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfCreate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MosavabPhotos" Relationship="Models.FK_MosavabPhotos_Mosavabs" FromRole="Mosavab" ToRole="MosavabPhoto" />
+          <NavigationProperty Name="Passways" Relationship="Models.FK_Passways_Mosavabs" FromRole="Mosavab" ToRole="Passway" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Organization" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Position" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfCreate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccessRule" Relationship="Models.FK_AccessRules_Members" FromRole="Member" ToRole="AccessRule" />
+        </EntityType>
+        <EntityType Name="AccessRule">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Type="Int32" Name="MemberID" Nullable="false" />
+          <Property Type="String" Name="AccessToPassways" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccessToMosavabs" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccessToPassNames" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccessToMembers" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Member" Relationship="Models.FK_AccessRules_Members" FromRole="AccessRule" ToRole="Member" />
+          <Property Name="AccessToReports" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_AccessRules_Members">
+          <End Type="Models.Member" Role="Member" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Models.AccessRule" Role="AccessRule" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccessRule">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MosavabPhoto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="MosavabID" Nullable="false" />
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfAdd" Nullable="false" Precision="3" />
+          <Property Type="String" Name="AddedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Mosavab" Relationship="Models.FK_MosavabPhotos_Mosavabs" FromRole="MosavabPhoto" ToRole="Mosavab" />
+        </EntityType>
+        <Association Name="FK_MosavabPhotos_Mosavabs">
+          <End Type="Models.Mosavab" Role="Mosavab" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Models.MosavabPhoto" Role="MosavabPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mosavab">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MosavabPhoto">
+              <PropertyRef Name="MosavabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PassName">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="DateTime" Name="DateOfAdd" Nullable="false" Precision="3" />
+          <Property Type="String" Name="AddedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsSuggestion" Nullable="false" />
+          <Property Type="String" Name="SuggestedBy" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShapeInfo" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfSuggest" Precision="3" />
+          <Property Type="String" Name="LetterNo" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Passway">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="MosavabID" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="Type" Nullable="false" />
+          <Property Type="String" Name="PrecedingName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="PrecedingType" />
+          <Property Type="String" Name="PostArea" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="Region" />
+          <Property Type="Double" Name="Width" />
+          <Property Type="Double" Name="Length" />
+          <Property Type="String" Name="ShapeInfo" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Explanation" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="NameType" />
+          <Property Type="String" Name="RecordId" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PrecedingRecordId" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="FloorType" />
+          <Property Type="Boolean" Name="HasBoard" />
+          <Property Type="Byte" Name="BoardType" />
+          <Property Type="String" Name="BoardSize" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="HasLighting" />
+          <Property Type="Int32" Name="CountOfStores" />
+          <Property Type="Int32" Name="CountOfShoppingCenters" />
+          <Property Type="Int32" Name="CountOfCondominiums" />
+          <Property Type="Int32" Name="CountOfOfficeComplexes" />
+          <Property Type="Int32" Name="CountOfHouses" />
+          <Property Type="Int32" Name="CountOfOfficeBuildings" />
+          <Property Type="Int32" Name="CountOfOthers" />
+          <Property Type="Boolean" Name="HasChannel" />
+          <Property Type="Byte" Name="ChannelType" />
+          <Property Type="Boolean" Name="HasPlanting" />
+          <Property Type="Boolean" Name="HasSidewalk" />
+          <Property Type="Byte" Name="SidewalkFloorType" />
+          <Property Type="Double" Name="SidewalkWidth" />
+          <Property Type="Boolean" Name="IsSidewalkIncomplete" />
+          <Property Type="Double" Name="BeginingLongitude" />
+          <Property Type="Double" Name="BeginingLatitude" />
+          <Property Type="Double" Name="EndingLongitude" />
+          <Property Type="Double" Name="EndingLatitude" />
+          <Property Type="Boolean" Name="HasFur" />
+          <Property Type="Boolean" Name="HasFurNimkat" />
+          <Property Type="Boolean" Name="HasFurAbkhori" />
+          <Property Type="Boolean" Name="HasFurTrash" />
+          <Property Type="Boolean" Name="HasFurBodyBuilding" />
+          <Property Type="Boolean" Name="HasFurToys" />
+          <Property Type="Boolean" Name="HasFurLamps" />
+          <Property Type="Boolean" Name="HasFurAdv" />
+          <Property Type="DateTime" Name="DateOfAdd" Nullable="false" Precision="3" />
+          <Property Type="String" Name="AddedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Mosavab" Relationship="Models.FK_Passways_Mosavabs" FromRole="Passway" ToRole="Mosavab" />
+          <NavigationProperty Name="PasswayPhotoes" Relationship="Models.FK_PasswayPhoto_Passways" FromRole="Passway" ToRole="PasswayPhoto" />
+          <Property Name="BeginingX" Type="Int32" />
+          <Property Name="BeginingY" Type="Int32" />
+          <Property Name="EndingX" Type="Int32" />
+          <Property Name="EndingY" Type="Int32" />
+          <Property Name="ExtraField" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Passways_Mosavabs">
+          <End Type="Models.Mosavab" Role="Mosavab" Multiplicity="0..1" />
+          <End Type="Models.Passway" Role="Passway" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mosavab">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Passway">
+              <PropertyRef Name="MosavabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PasswayPhoto_Passways">
+          <End Type="Models.Passway" Role="Passway" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Models.PasswayPhoto" Role="PasswayPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passway">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PasswayPhoto">
+              <PropertyRef Name="PasswayID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="NamgozariDBEntities">
+          <EntitySetMapping Name="PasswayPhotoes">
+            <EntityTypeMapping TypeName="Models.PasswayPhoto">
+              <MappingFragment StoreEntitySet="PasswayPhoto">
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="DateOfAdd" ColumnName="DateOfAdd" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="PasswayID" ColumnName="PasswayID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mosavabs">
+            <EntityTypeMapping TypeName="Models.Mosavab">
+              <MappingFragment StoreEntitySet="Mosavabs">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateOfCreate" ColumnName="DateOfCreate" />
+                <ScalarProperty Name="Participants" ColumnName="Participants" />
+                <ScalarProperty Name="DateOfMeeting" ColumnName="DateOfMeeting" />
+                <ScalarProperty Name="MeetingNo" ColumnName="MeetingNo" />
+                <ScalarProperty Name="Explanation" ColumnName="Explanation" />
+                <ScalarProperty Name="Shomare" ColumnName="Shomare" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="Models.Member">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateOfCreate" ColumnName="DateOfCreate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccessRules">
+            <EntityTypeMapping TypeName="Models.AccessRule">
+              <MappingFragment StoreEntitySet="AccessRules">
+                <ScalarProperty Name="AccessToReports" ColumnName="AccessToReports" />
+                <ScalarProperty Name="AccessToMembers" ColumnName="AccessToMembers" />
+                <ScalarProperty Name="AccessToPassNames" ColumnName="AccessToPassNames" />
+                <ScalarProperty Name="AccessToMosavabs" ColumnName="AccessToMosavabs" />
+                <ScalarProperty Name="AccessToPassways" ColumnName="AccessToPassways" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MosavabPhotos">
+            <EntityTypeMapping TypeName="Models.MosavabPhoto">
+              <MappingFragment StoreEntitySet="MosavabPhotos">
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="DateOfAdd" ColumnName="DateOfAdd" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="MosavabID" ColumnName="MosavabID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassNames">
+            <EntityTypeMapping TypeName="Models.PassName">
+              <MappingFragment StoreEntitySet="PassNames">
+                <ScalarProperty Name="LetterNo" ColumnName="LetterNo" />
+                <ScalarProperty Name="DateOfSuggest" ColumnName="DateOfSuggest" />
+                <ScalarProperty Name="ShapeInfo" ColumnName="ShapeInfo" />
+                <ScalarProperty Name="SuggestedBy" ColumnName="SuggestedBy" />
+                <ScalarProperty Name="IsSuggestion" ColumnName="IsSuggestion" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="DateOfAdd" ColumnName="DateOfAdd" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passways">
+            <EntityTypeMapping TypeName="Models.Passway">
+              <MappingFragment StoreEntitySet="Passways">
+                <ScalarProperty Name="ExtraField" ColumnName="ExtraField" />
+                <ScalarProperty Name="EndingY" ColumnName="EndingY" />
+                <ScalarProperty Name="EndingX" ColumnName="EndingX" />
+                <ScalarProperty Name="BeginingY" ColumnName="BeginingY" />
+                <ScalarProperty Name="BeginingX" ColumnName="BeginingX" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="DateOfAdd" ColumnName="DateOfAdd" />
+                <ScalarProperty Name="HasFurAdv" ColumnName="HasFurAdv" />
+                <ScalarProperty Name="HasFurLamps" ColumnName="HasFurLamps" />
+                <ScalarProperty Name="HasFurToys" ColumnName="HasFurToys" />
+                <ScalarProperty Name="HasFurBodyBuilding" ColumnName="HasFurBodyBuilding" />
+                <ScalarProperty Name="HasFurTrash" ColumnName="HasFurTrash" />
+                <ScalarProperty Name="HasFurAbkhori" ColumnName="HasFurAbkhori" />
+                <ScalarProperty Name="HasFurNimkat" ColumnName="HasFurNimkat" />
+                <ScalarProperty Name="HasFur" ColumnName="HasFur" />
+                <ScalarProperty Name="EndingLatitude" ColumnName="EndingLatitude" />
+                <ScalarProperty Name="EndingLongitude" ColumnName="EndingLongitude" />
+                <ScalarProperty Name="BeginingLatitude" ColumnName="BeginingLatitude" />
+                <ScalarProperty Name="BeginingLongitude" ColumnName="BeginingLongitude" />
+                <ScalarProperty Name="IsSidewalkIncomplete" ColumnName="IsSidewalkIncomplete" />
+                <ScalarProperty Name="SidewalkWidth" ColumnName="SidewalkWidth" />
+                <ScalarProperty Name="SidewalkFloorType" ColumnName="SidewalkFloorType" />
+                <ScalarProperty Name="HasSidewalk" ColumnName="HasSidewalk" />
+                <ScalarProperty Name="HasPlanting" ColumnName="HasPlanting" />
+                <ScalarProperty Name="ChannelType" ColumnName="ChannelType" />
+                <ScalarProperty Name="HasChannel" ColumnName="HasChannel" />
+                <ScalarProperty Name="CountOfOthers" ColumnName="CountOfOthers" />
+                <ScalarProperty Name="CountOfOfficeBuildings" ColumnName="CountOfOfficeBuildings" />
+                <ScalarProperty Name="CountOfHouses" ColumnName="CountOfHouses" />
+                <ScalarProperty Name="CountOfOfficeComplexes" ColumnName="CountOfOfficeComplexes" />
+                <ScalarProperty Name="CountOfCondominiums" ColumnName="CountOfCondominiums" />
+                <ScalarProperty Name="CountOfShoppingCenters" ColumnName="CountOfShoppingCenters" />
+                <ScalarProperty Name="CountOfStores" ColumnName="CountOfStores" />
+                <ScalarProperty Name="HasLighting" ColumnName="HasLighting" />
+                <ScalarProperty Name="BoardSize" ColumnName="BoardSize" />
+                <ScalarProperty Name="BoardType" ColumnName="BoardType" />
+                <ScalarProperty Name="HasBoard" ColumnName="HasBoard" />
+                <ScalarProperty Name="FloorType" ColumnName="FloorType" />
+                <ScalarProperty Name="PrecedingRecordId" ColumnName="PrecedingRecordId" />
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="NameType" ColumnName="NameType" />
+                <ScalarProperty Name="Explanation" ColumnName="Explanation" />
+                <ScalarProperty Name="ShapeInfo" ColumnName="ShapeInfo" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="PostArea" ColumnName="PostArea" />
+                <ScalarProperty Name="PrecedingType" ColumnName="PrecedingType" />
+                <ScalarProperty Name="PrecedingName" ColumnName="PrecedingName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MosavabID" ColumnName="MosavabID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

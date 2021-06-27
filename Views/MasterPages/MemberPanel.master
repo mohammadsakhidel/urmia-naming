@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/MasterPages/Site.master" AutoEventWireup="true" CodeFile="MemberPanel.master.cs" Inherits="Views_MasterPages_MemberPanel" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script type="text/javascript" src='<%= MyHelper.Url("~/Scripts/panel-menu.js") %>'></script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MenuPlace" Runat="Server">
+
+    <asp:HyperLink ID="mi_PassNames" runat="server" CssClass="mi mi-basicInfo"></asp:HyperLink>
+    <div id="div_PassNames" runat="server" class="submenu hide">
+        <div id="smi_CreatePassName" runat="server" class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="smi-link" NavigateUrl="~/Views/Members/NewPassName.aspx">افزودن به بانک اسامی</asp:HyperLink>
+        </div>
+        <div id="smi_SearchPassName" runat="server" class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="smi-link" 
+                NavigateUrl="~/Views/Members/PassNames.aspx">جستجو در بانک اسامی</asp:HyperLink>
+        </div>
+    </div>
+
+    <asp:HyperLink ID="mi_Mosavabs" runat="server" CssClass="mi mi-mosavabat"></asp:HyperLink>
+    <div id="div_Mosavabs" runat="server" class="submenu hide">
+        <div id="smi_CreateMosavab" runat="server" class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink4" runat="server" CssClass="smi-link" 
+                NavigateUrl="~/Views/Members/NewMosavvab.aspx">ثبت مصوبه جدید</asp:HyperLink>
+        </div>
+        <div id="smi_SearchMosavab" runat="server" class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink5" runat="server" CssClass="smi-link" 
+                NavigateUrl="~/Views/Members/Mosavvabs.aspx">جستجو در مصوبات</asp:HyperLink>
+        </div>
+    </div>
+
+    <asp:HyperLink ID="mi_Passways" runat="server" CssClass="mi mi-maaber"></asp:HyperLink>
+    <div id="div_Passways" runat="server" class="submenu hide">
+        <div id="smi_CreatePassway" runat="server" class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink6" runat="server" CssClass="smi-link" 
+                NavigateUrl="~/Views/Members/NewPassway.aspx">تعریف معبر جدید</asp:HyperLink>
+        </div>
+        <div id="smi_SearchPassway" runat="server" class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink7" runat="server" CssClass="smi-link" 
+                NavigateUrl="~/Views/Members/Passways.aspx">جستجو در معابر</asp:HyperLink>
+        </div>
+        <div id="smi_SearchArea" runat="server" class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink11" runat="server" CssClass="smi-link" 
+                NavigateUrl="~/Views/Members/SearchArea.aspx">جستجو در محدوده</asp:HyperLink>
+        </div>
+        <div class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink8" runat="server" CssClass="smi-link" 
+                NavigateUrl="~/Views/Members/UrmiaMap.aspx">نقشه شهر</asp:HyperLink>
+        </div>
+    </div>
+
+    <a ID="mi_Reports" runat="server" class="mi mi-reports"></a>
+    <div runat="server" ID="div_Reports" class="submenu hide">
+        <div class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink13" runat="server" CssClass="smi-link"
+                NavigateUrl="~/Views/Members/ReportOfPassNameTypes.aspx">آمار انواع اسامی استفاده شده</asp:HyperLink>
+        </div>
+        <div class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink14" runat="server" CssClass="smi-link"
+                NavigateUrl="~/Views/Members/ReportOfPassways.aspx">آمار معابر ثبت شده به تفکیک نوع</asp:HyperLink>
+        </div>
+        <div class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink15" runat="server" CssClass="smi-link"
+                NavigateUrl="~/Views/Members/ReportOfPasswaysTable.aspx">گزارش جامع معابر</asp:HyperLink>
+        </div>
+        <div class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink16" runat="server" CssClass="smi-link"
+                NavigateUrl="~/Views/Members/ReportOfPasswaysByQuery.aspx">گزارش معابر با پرس و جو</asp:HyperLink>
+        </div>
+        <div class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink17" runat="server" CssClass="smi-link"
+                NavigateUrl="~/Views/Members/ReportOfPasswaysDynamic.aspx">گزارش ساز پویا</asp:HyperLink>
+        </div>
+    </div>
+
+    <asp:HyperLink ID="mi_Members" runat="server" CssClass="mi mi-users"></asp:HyperLink>
+    <div id="div_Members" runat="server" class="submenu hide">
+        <div id="smi_CreateMember" runat="server" class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink9" runat="server" CssClass="smi-link" 
+                NavigateUrl="~/Views/Members/NewUser.aspx">تعریف کاربر جدید</asp:HyperLink>
+        </div>
+        <div id="smi_ListMember" runat="server" class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink10" runat="server" CssClass="smi-link" 
+                NavigateUrl="~/Views/Members/Users.aspx">لیست کاربران و سطوح دسترسی</asp:HyperLink>
+        </div>
+    </div>
+
+    <asp:HyperLink ID="mi_Settings" runat="server" CssClass="mi mi-settings"></asp:HyperLink>
+    <div class="submenu hide">
+        <div id="Div2" runat="server" class="smi">
+            <div class="smi-icon"></div>
+            <asp:HyperLink ID="HyperLink12" runat="server" CssClass="smi-link" 
+                NavigateUrl="~/Views/Members/ChangePassword.aspx">تغییر رمز حساب کاربری</asp:HyperLink>
+        </div>
+    </div>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="PageTitlePlace" Runat="Server">
+    <div class="page-title">
+        <div class="page-title-icon"></div>
+        <div class="page-title-text">
+            <asp:ContentPlaceHolder ID="PageTitlePlace" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlace" Runat="Server">
+    <div class="welcome-container">
+        <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn-logout" OnClick="LinkButton1_Click"></asp:LinkButton>
+        <asp:HyperLink ID="HyperLink3" runat="server" CssClass="welcome-link" NavigateUrl="~/Views/Members/Panel.aspx">
+            <%= "کاربر: " + HttpContext.Current.User.Identity.Name %>
+        </asp:HyperLink>
+    </div>
+    <asp:ContentPlaceHolder ID="ContentPlace" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9415e38fa5c74ffa8f09a946e3fd23f2" Name="Diagram1" ZoomLevel="116">
+        <EntityTypeShape EntityType="Models.PasswayPhoto" Width="1.5" PointX="5.625" PointY="0.5" FillColor="0, 122, 204" />
+        <EntityTypeShape EntityType="Models.Mosavab" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="Models.Member" Width="1.5" PointX="8.125" PointY="0.5" />
+        <EntityTypeShape EntityType="Models.AccessRule" Width="1.5" PointX="8.125" PointY="3.875" />
+        <AssociationConnector Association="Models.FK_AccessRules_Members" />
+        <EntityTypeShape EntityType="Models.MosavabPhoto" Width="1.5" PointX="0.5" PointY="4.625" />
+        <AssociationConnector Association="Models.FK_MosavabPhotos_Mosavabs" />
+        <EntityTypeShape EntityType="Models.PassName" Width="1.5" PointX="5.75" PointY="3.375" />
+        <EntityTypeShape EntityType="Models.Passway" Width="1.5" PointX="3.125" PointY="0.5" />
+        <AssociationConnector Association="Models.FK_Passways_Mosavabs" />
+        <AssociationConnector Association="Models.FK_PasswayPhoto_Passways" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
